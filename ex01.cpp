@@ -3,20 +3,22 @@
 
 struct Professor{
     char cpf[11];
-    char nome[30];
-    char titulacao[40];
+    char name[30];
+    char titration[40];
 };
 
 struct Cliente{
-    int codigo;
-    char nome[30];
-    char telefone[12];
+    int code;
+    char name[30];
+    char phone[12];
     char email[40];
 };
 
 int main(){
 
-    int op = 0;
+    int op, count_register, pcount, ccount = 0;
+    Professor prof[10];
+    Cliente cli[10];
 
     while (op != 3)
     {
@@ -29,17 +31,38 @@ int main(){
         switch (op)
         {
         case 1:
-            //cadastro professor
+            printf("\n\n-------------- %d's Teachers Register --------------\n", pcount+1);
+            printf("CPF: ");
+            fflush(stdin);
+            fgets(prof[pcount].cpf, 12, stdin);
+
+            printf("Name: ");
+            fflush(stdin);
+            fgets(prof[pcount].name, 30, stdin);
+
+            printf("Titration: ");
+            fflush(stdin);
+            fgets(prof[pcount].titration, 40, stdin);
+
+            pcount++;
+            count_register++;
+
+            printf("\n----------------------------------------------\n");
             break;
         
         case 2:
-            //cadastro cliente
+            printf("\n\n-------------- Clients Register --------------\n");
+
+
+            printf("\n----------------------------------------------\n");
             break;
 
         default:
             break;
         }
     }
+
+    //register prints
     
 
     return 0;
