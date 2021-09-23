@@ -16,6 +16,30 @@ struct Cliente{
 
 int main(){
 
+    int op = 0;
+
+    while (op != 3)
+    {
+
+        printf("\n\n-------------- Menu --------------");
+        printf("\nRegistration Options:\n[1]Register Teacher\n[2]Register Customer\n[3]Exit");
+        printf("\nType your option: ");
+        scanf("%d", &op);
+
+        switch (op)
+        {
+        case 1:
+            //cadastro professor
+            break;
+        
+        case 2:
+            //cadastro cliente
+            break;
+
+        default:
+            break;
+        }
+    }
     
 
     return 0;
