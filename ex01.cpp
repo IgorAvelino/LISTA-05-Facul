@@ -17,7 +17,7 @@ struct Cliente{
 int main(){
 
     int op = 0;
-    int count_register = 9;
+    int count_register = 0;
     int pcount = 0;
     int ccount = 0;
     Professor prof[10];
@@ -27,7 +27,7 @@ int main(){
     {
 
         printf("\n\n-------------- Menu --------------");
-        printf("\nRegistration Options:\n[1]Register Teacher\n[2]Register Customer\n[3]Exit and Save");
+        printf("\nRegistration Options:\n[1]Register Teacher\n[2]Register Clients\n[3]Exit and Save");
         printf("\nType your option: ");
         scanf("%d", &op);
 
@@ -37,7 +37,7 @@ int main(){
             printf("\n\n-------------- %d's Teachers Register --------------\n", pcount+1);
             printf("CPF: ");
             fflush(stdin);
-            fgets(prof[pcount].cpf, 12, stdin);
+            fgets(prof[pcount].cpf, 11, stdin);
 
             printf("Name: ");
             fflush(stdin);
@@ -61,11 +61,11 @@ int main(){
             fflush(stdin);
             fgets(cli[ccount].name, 30, stdin);
 
-            printf("Phone");
+            printf("Phone: ");
             fflush(stdin);
             fgets(cli[ccount].phone, 40, stdin);
 
-            printf("Email");
+            printf("Email: ");
             fflush(stdin);
             fgets(cli[ccount].email, 12, stdin);
 
@@ -87,18 +87,18 @@ int main(){
     printf("\n\n-------------- Database --------------\n");
     
     printf("-------------- Teachers --------------\n");
-    for(int i = pcount; i < pcount; i++){
+    for(int i = 0; i < pcount; i++){
         printf("CPF: %s", prof[pcount].cpf);
-        printf("Name: %s", prof[pcount].name);
-        printf("Titration: %s", prof[pcount].titration);
+        printf("\nName: %s", prof[pcount].name);
+        printf("\nTitration: %s", prof[pcount].titration);
     }
 
-    printf("-------------- Clients --------------\n");
-    for(int i = ccount; i < ccount; i++){
+    printf("\n-------------- Clients --------------\n");
+    for(int i = 0; i < ccount; i++){
         printf("Code: %i", cli[ccount].code);
-        printf("Name: %s", cli[ccount].name);
-        printf("Phone: %s", cli[ccount].phone);
-        printf("Email: %s", cli[ccount].email);
+        printf("\nName: %s", cli[ccount].name);
+        printf("\nPhone: %s", cli[ccount].phone);
+        printf("\nEmail: %s", cli[ccount].email);
     }
     
 
