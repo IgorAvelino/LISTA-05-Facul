@@ -16,7 +16,10 @@ struct Cliente{
 
 int main(){
 
-    int op, count_register, pcount, ccount = 0;
+    int op = 0;
+    int count_register = 9;
+    int pcount = 0;
+    int ccount = 0;
     Professor prof[10];
     Cliente cli[10];
 
@@ -24,12 +27,12 @@ int main(){
     {
 
         printf("\n\n-------------- Menu --------------");
-        printf("\nRegistration Options:\n[1]Register Teacher\n[2]Register Customer\n[3]Exit");
+        printf("\nRegistration Options:\n[1]Register Teacher\n[2]Register Customer\n[3]Exit and Save");
         printf("\nType your option: ");
         scanf("%d", &op);
 
-        switch (op)
-        {
+        switch (op){
+
         case 1:
             printf("\n\n-------------- %d's Teachers Register --------------\n", pcount+1);
             printf("CPF: ");
@@ -46,23 +49,57 @@ int main(){
 
             pcount++;
             count_register++;
-
-            printf("\n----------------------------------------------\n");
             break;
         
         case 2:
             printf("\n\n-------------- Clients Register --------------\n");
+            printf("Code: ");
+            fflush(stdin);
+            scanf("%i", &cli[ccount].code);
 
+            printf("Name: ");
+            fflush(stdin);
+            fgets(cli[ccount].name, 30, stdin);
 
-            printf("\n----------------------------------------------\n");
+            printf("Phone");
+            fflush(stdin);
+            fgets(cli[ccount].phone, 40, stdin);
+
+            printf("Email");
+            fflush(stdin);
+            fgets(cli[ccount].email, 12, stdin);
+
+            ccount++;
+            count_register++;
+
             break;
 
         default:
             break;
         }
+
+        if(count_register >= 10){
+            break;
+        }
+
     }
 
-    //register prints
+    printf("\n\n-------------- Database --------------\n");
+    
+    printf("-------------- Teachers --------------\n");
+    for(int i = pcount; i < pcount; i++){
+        printf("CPF: %s", prof[pcount].cpf);
+        printf("Name: %s", prof[pcount].name);
+        printf("Titration: %s", prof[pcount].titration);
+    }
+
+    printf("-------------- Clients --------------\n");
+    for(int i = ccount; i < ccount; i++){
+        printf("Code: %i", cli[ccount].code);
+        printf("Name: %s", cli[ccount].name);
+        printf("Phone: %s", cli[ccount].phone);
+        printf("Email: %s", cli[ccount].email);
+    }
     
 
     return 0;
